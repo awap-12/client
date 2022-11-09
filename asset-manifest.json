@@ -1,22 +1,24 @@
 {
   "files": {
     "main.css": "/client/static/css/main.93f08560.css",
-    "main.js": "/client/static/js/main.2b56db58.js",
+    "main.js": "/client/static/js/main.aac2fd7e.js",
     "static/js/787.c4e7f8f9.chunk.js": "/client/static/js/787.c4e7f8f9.chunk.js",
     "static/media/nhtemp.csv": "/client/static/media/nhtemp.266f46b9e9398d8dd56d.csv",
     "static/media/HadCRUT-southern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-southern-hemisphere-monthly.6771bcb3baa1cc987b83.csv",
     "static/media/HadCRUT-global-monthly.csv": "/client/static/media/HadCRUT-global-monthly.60a965c13623e584b30e.csv",
     "static/media/HadCRUT-northern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-northern-hemisphere-monthly.66f3ea7ab02ca4f57e0e.csv",
+    "static/media/co2-monthly.csv": "/client/static/media/co2-monthly.49394f321be765acb172.csv",
     "static/media/HadCRUT-global-annual.csv": "/client/static/media/HadCRUT-global-annual.5693caa7242098baa6b6.csv",
     "static/media/HadCRUT-northern-hemisphere-annual.csv": "/client/static/media/HadCRUT-northern-hemisphere-annual.0a5cf599436efdf14a38.csv",
     "static/media/HadCRUT-southern-hemisphere-annual.csv": "/client/static/media/HadCRUT-southern-hemisphere-annual.a6995403f7dcf24a00f8.csv",
+    "static/media/co2-annual.csv": "/client/static/media/co2-annual.fde79269f7d8df787825.csv",
     "index.html": "/client/index.html",
     "main.93f08560.css.map": "/client/static/css/main.93f08560.css.map",
-    "main.2b56db58.js.map": "/client/static/js/main.2b56db58.js.map",
+    "main.aac2fd7e.js.map": "/client/static/js/main.aac2fd7e.js.map",
     "787.c4e7f8f9.chunk.js.map": "/client/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93f08560.css",
-    "static/js/main.2b56db58.js"
+    "static/js/main.aac2fd7e.js"
   ]
 }
