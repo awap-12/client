@@ -1,12 +1,13 @@
 {
   "files": {
     "main.css": "/client/static/css/main.93f08560.css",
-    "main.js": "/client/static/js/main.affcd1fa.js",
+    "main.js": "/client/static/js/main.2024f7d9.js",
     "static/js/787.c4e7f8f9.chunk.js": "/client/static/js/787.c4e7f8f9.chunk.js",
     "static/media/nhtemp.csv": "/client/static/media/nhtemp.266f46b9e9398d8dd56d.csv",
     "static/media/HadCRUT-southern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-southern-hemisphere-monthly.6771bcb3baa1cc987b83.csv",
     "static/media/HadCRUT-global-monthly.csv": "/client/static/media/HadCRUT-global-monthly.60a965c13623e584b30e.csv",
     "static/media/HadCRUT-northern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-northern-hemisphere-monthly.66f3ea7ab02ca4f57e0e.csv",
+    "static/media/national-carbon-emissions.csv": "/client/static/media/national-carbon-emissions.823dd02a87914ca7c7cb.csv",
     "static/media/co2composite.csv": "/client/static/media/co2composite.31d013f1b9f4aa941ad5.csv",
     "static/media/co2-monthly.csv": "/client/static/media/co2-monthly.49394f321be765acb172.csv",
     "static/media/antarctic-temperature.csv": "/client/static/media/antarctic-temperature.0950053fd544c3f63787.csv",
@@ -21,11 +22,11 @@
     "index.html": "/client/index.html",
     "static/media/de08-2.csv": "/client/static/media/de08-2.0c55c5ac65dd8d2d2383.csv",
     "main.93f08560.css.map": "/client/static/css/main.93f08560.css.map",
-    "main.affcd1fa.js.map": "/client/static/js/main.affcd1fa.js.map",
+    "main.2024f7d9.js.map": "/client/static/js/main.2024f7d9.js.map",
     "787.c4e7f8f9.chunk.js.map": "/client/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93f08560.css",
-    "static/js/main.affcd1fa.js"
+    "static/js/main.2024f7d9.js"
   ]
 }
