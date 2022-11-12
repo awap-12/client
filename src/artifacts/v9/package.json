@@ -1,0 +1,13 @@
+{
+  "name": "v9",
+  "version": "1.0.0",
+  "dependencies": {
+    "d3-array": "latest",
+    "d3-chord": "latest",
+    "d3-fetch": "latest",
+    "d3-scale": "latest",
+    "d3-scale-chromatic": "latest",
+    "d3-interpolate": "latest",
+    "shared": "file:../shared"
+  }
+}
