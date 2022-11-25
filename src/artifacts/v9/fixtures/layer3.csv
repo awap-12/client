@@ -1,4 +1,4 @@
-Sub-sector,Share of global greenhouse gas emissions (%)
+sector,emissions
 Road,11.9
 Aviation,1.9
 Rail,0.4
@@ -19,6 +19,8 @@ Coal,1.9
 Oil & Natural Gas,3.9
 Cement,3
 Chemical & petrochemical (industrial),2.2
+Landfills,1.9
+Wastewater,1.3
 Livestock & Manure,5.8
 Rice Cultivation,1.3
 Agricultural Soils,4.1
@@ -26,5 +28,3 @@ Crop Burning,3.5
 Forest Land,2.2
 Cropland,1.4
 Grassland,0.1
-Landfills,1.9
-Wastewater,1.3

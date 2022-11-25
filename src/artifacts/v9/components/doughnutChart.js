@@ -1,142 +1,189 @@
-import React, {useEffect, useRef} from "react";
-import { range, map, InternSet } from "d3-array";
-import { schemeSpectral } from "d3-chord";
-import { pie as Pie, arc as Arc } from "d3-shape";
+import React, { useEffect, useRef } from "react";
+import { arc as Arc } from "d3-shape";
 import { scaleOrdinal } from "d3-scale";
-import { quantize } from "d3-interpolate";
-import { interpolateSpectral } from "d3-scale-chromatic";
+import "d3-transition";
+import { hierarchy, partition } from "d3-hierarchy"
+import { interpolate, quantize } from "d3-interpolate";
+import { interpolateRainbow } from "d3-scale-chromatic";
 import { select } from "d3-selection";
 
-/**
- * Format color scale
- * @param keys
- * @param colors
- * @return {any}
- */
-export function formatColors(keys, colors) {
-    if (!!colors) return scaleOrdinal(keys, colors);
-    colors = schemeSpectral[keys.size];
-    colors = quantize(t => interpolateSpectral(t * 0.8 + 0.1), keys.size);
-    return scaleOrdinal(keys, colors);
+const context = document.createElement("canvas").getContext("2d");
+
+export function formatPartition(data) {
+    // 1. create the hierarchy, define the root element
+    const root = hierarchy(data)
+        .sum(d => d.value)
+        .sort((a, b) => b.value - a.value);
+    // 2. create the partition layout
+    return partition().size([2 * Math.PI, root.height + 1])(root);
 }
 
-/**
- * Format a dough nut
- * @param keySet
- * @param valueSet
- * @param pad
- * @param inner
- * @param outer
- * @param label
- * @return {[]}
- */
-export function formatDoughnut(keySet, valueSet, pad, { inner, outer }, label) {
-    const definedSet = range(keySet.length).filter(i => !isNaN(valueSet[i]));
+export function formatColor(data) {
+    // todo: other style?
+    return scaleOrdinal(quantize(interpolateRainbow, data.children.length + 1));
+}
 
-    const arcs = Pie()
-        .padAngle(pad)
-        .sort(null)
-        .value(i => valueSet[i])(definedSet);
+export function formatArc(radius) {
+    return Arc().startAngle(d => d.x0)
+                .endAngle(d => d.x1)
+                .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
+                .padRadius(radius * 1.5)
+                .innerRadius(d => d.y0 * radius)
+                .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
+}
 
-    const arc = Arc()
-        .innerRadius(inner)
-        .outerRadius(outer);
+function formatText(element, maxWidth, lineHeight = 1.1, unit = "em") {
+    let words = element.text().split(/\s+/).reverse(), word, line = [], lineNumber = 0;
 
-    const arcLabel = Arc()
-        .innerRadius(label)
-        .outerRadius(label);
+    // styling parameters
+    const x = element.attr("x"), y = element.attr("y");
 
-    return [arc, arcs, arcLabel];
+    // clear element text
+    element.text(null);
+
+    // append first tspan element (to fill as we build the lines)
+    let tspan = element.append("tspan")
+        .attr("x", x)
+        .attr("y", y)
+        .attr("dy", 0);
+
+    // loop through all words and make new lines when we exceed our max_width
+    while ((word = words.pop())) {
+        line.push(word);
+        tspan.text(line.join(" "));
+        if (context.measureText(tspan.text()).width > maxWidth) {
+            line.pop()
+            tspan.text(line.join(" "));
+            line = [word];
+            tspan = element.append("tspan")
+                .attr("x", 0) // x
+                .attr("y", ++lineNumber * lineHeight) // y
+                .attr("dy", `${lineNumber * lineHeight}${unit}`)
+                .text(word);
+        }
+    }
 }
 
 /**
  * A DoughnutChart
  * @param data data source
- * @param label
- * @param {number} width outer width, in pixels
- * @param {number} height outer height, in pixels
- * @param {number} innerRadius inner radius of pie, in pixels (non-zero for donut)
- * @param {number} outerRadius outer radius of pie, in pixels
- * @param {number} labelRadius
- * @param colors array of colors for names
- * @param {string} stroke stroke separating widths
- * @param {number} strokeWidth width of stroke separating wedges
- * @param {string} strokeLinejoin line join of stroke separating wedges
- * @param {number} padAngle angular separation between wedges
- * @param options
+ * @param width
+ * @param height
+ * @param radius
  * @return {JSX.Element}
  */
 function DoughnutChart({
     data,
-    label,
-    width = 960,
-    height = 600,
-    innerRadius = Math.min(width, height) / 3,
-    outerRadius = Math.min(width, height) / 2,
-    labelRadius = (innerRadius + outerRadius) / 2,
-    colors,
-    stroke = innerRadius > 0 ? "none" : "white",
-    strokeWidth = 1,
-    strokeLinejoin = "round",
-    padAngle = stroke === "none" ? 1 / outerRadius : 0,
-    options
+    width = 640,
+    height = 640,
+    radius = width / 6
 }) {
-    const { key, value } = options;
     const svgRef = useRef(null);
 
     useEffect(() => {
         if (data && svgRef.current) {
+            const root = formatPartition(data).each(d => d.current = d); // copy
             const svg = select(svgRef.current);
-            const svgContent = svg.select(".content");
-            const svgStructure = svg.select(".structure");
+            const container = svg.select(".container");
 
-            const keySet = map(data, key), valueSet = map(data, value);
-            const keys = new InternSet(keySet);
+            const color = formatColor(data);
+            const arc = formatArc(radius);
 
-            const color = formatColors(keys, colors);
-            const [arc, arcs, arcLabel] = formatDoughnut(
-                keySet, valueSet, padAngle,
-                { innerRadius, outerRadius },
-                labelRadius
-            )
+            svg.attr("width", width)
+                .attr("height", height)
+                .attr("viewBox", [0, 0, width, height])
+                .style("font", "9px sans-serif");
 
-            svg.attr("width", width).attr("height", height)
-                .attr("viewBox", [-width / 2, -height / 2, width, height])
-                .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+            container.attr("transform", `translate(${width / 2},${width / 2})`);
 
-            svgStructure
-                .attr("stroke", stroke)
-                .attr("stroke-width", strokeWidth)
-                .attr("stroke-linejoin", strokeLinejoin)
+            const path = container.select(".path")
                 .selectAll("path")
-                .data(arcs)
+                .data(root.descendants().slice(1))
                 .join("path")
-                .attr("fill", d => color(keySet[d.data]))
-                .attr("d", arc)
-                .append("title")
-                .text(d => label(d.data));
+                 .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
+                 .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
+                 .attr("pointer-events", d => arcVisible(d.current) ? "auto" : "none")
+                 .attr("d", d => arc(d.current));
+            path.filter(d => "children" in d)
+                .style("cursor", "pointer")
+                .on("click", clicked);
 
-            svgContent.selectAll("text")
-                .data(arcs)
+            const label = container.select(".label")
+                .style("user-select", "none")
+                .selectAll("text")
+                .data(root.descendants().slice(1))
                 .join("text")
-                 .attr("transform", d => `translate(${arcLabel.centroid(d)})`)
-                .selectAll("tspan")
-                .data(d => {
-                    const lines = `${label(d.data)}`.split(/\n/);
-                    return (d.endAngle - d.startAngle) > 0.25 ? lines : lines.slice(0, 1);
-                })
-                .join("tspan")
-                 .attr("x", 0)
-                 .attr("y", (v, i) => `${i * 1.1}em`)
-                 .attr("font-weight", (v, i) => i ? null : "bold")
-                 .text(d => d);
+                 .attr("dy", "0.35em")
+                 .attr("fill-opacity", d => +labelVisible(d.current))
+                 .attr("transform", d => labelTransform(d.current))
+                 .text(d => d.data.name);
+            container.selectAll("text")
+                .each(function() { formatText(select(this), 100) });
+
+            const parent = container.select(".parent")
+                .datum(root)
+                 .attr("r", radius)
+                 .attr("fill", "none")
+                 .attr("pointer-events", "all")
+                .on("click", clicked);
+
+            function clicked(event, p) {
+                parent.datum(p.parent || root);
+
+                root.each(d => d.target = {
+                    x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                    x1: Math.max(0, Math.min(1, (d.x1 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
+                    y0: Math.max(0, d.y0 - p.depth),
+                    y1: Math.max(0, d.y1 - p.depth)
+                });
+
+                const t = container.transition().duration(750);
+
+                // Transition the data on all arcs, even the ones that aren’t visible,
+                // so that if this transition is interrupted, entering arcs will start
+                // the next transition from the desired position.
+                path.transition(t)
+                    .tween("data", d => {
+                        const i = interpolate(d.current, d.target);
+                        return t => d.current = i(t);
+                    })
+                    .filter(function(d) {
+                        return +this.getAttribute("fill-opacity") || arcVisible(d.target);
+                    })
+                    .attr("fill-opacity", d => arcVisible(d.target) ? (d.children ? 0.6 : 0.4) : 0)
+                    .attr("pointer-events", d => arcVisible(d.target) ? "auto" : "none")
+                    .attrTween("d", d => () => arc(d.current));
+
+                label.filter(function(d) {
+                    return +this.getAttribute("fill-opacity") || labelVisible(d.target);
+                }).transition(t)
+                    .attr("fill-opacity", d => +labelVisible(d.target))
+                    .attrTween("transform", d => () => labelTransform(d.current));
+            }
+
+            function arcVisible(d) {
+                return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
+            }
+
+            function labelVisible(d) {
+                return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+            }
+
+            function labelTransform(d) {
+                const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
+                const y = (d.y0 + d.y1) / 2 * radius;
+                return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
+            }
         }
     });
 
     return (
         <svg ref={svgRef}>
-            <g className="structure" />
-            <g className="content" fontSize={10} textAnchor="middle" />
+            <g className="container">
+                <g className="path" />
+                <g className="label" pointerEvents="none" textAnchor="middle" />
+                <circle className="parent" />
+            </g>
         </svg>
     );
 }
