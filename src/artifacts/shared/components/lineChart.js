@@ -68,24 +68,35 @@ export function formatLine(source, dataSet, defined) {
     return Line().defined(i => definedSet[i]).curve(curveLinear).x(i => xScale(xSet[i])).y(i => yScale(ySet[i]));
 }
 
+/**
+ * A LineChart
+ * @param {any} data data source
+ * @param tip tip source
+ * @param {number} width outer width, in pixels
+ * @param {number} height outer height, in pixels
+ * @param {top:number,right:number,bottom:number,left:number} margin margin, in pixels
+ * @param {string} color
+ * @param {string} strokeLinecap stroke line cap of the line
+ * @param {string} strokeLinejoin stroke line join of the line
+ * @param {number} strokeWidth
+ * @param {number} strokeOpacity stroke opacity of line
+ * @param {string} mixBlendMode
+ * @param options option data
+ * @return {JSX.Element}
+ */
 function LineChart({
-    data,                               // data source
-    tip,                                // tip source
-    width = 960,                // outer width, in pixels
-    height = 600,               // outer height, in pixels
-    margin = {
-        top: 20,                        // top margin, in pixels
-        right: 30,                      // right margin, in pixels
-        bottom: 30,                     // bottom margin, in pixels
-        left: 40                        // left margin, in pixels
-    },
+    data,
+    tip,
+    width = 960,
+    height = 600,
+    margin = { top: 20, right: 30, bottom: 30, left: 40 },
     color = "currentColor",
-    strokeLinecap = "round",      // stroke line cap of the line
-    strokeLinejoin = "round",     // stroke line join of the line
+    strokeLinecap = "round",
+    strokeLinejoin = "round",
     strokeWidth = 1.5,
-    strokeOpacity = 1,           // stroke opacity of line
+    strokeOpacity = 1,
     mixBlendMode = "multiply",
-    options                              // option data
+    options
 }) {
     const { top: marginTop, right: marginRight, bottom: marginBottom, left: marginLeft } = margin;
     const { x, y, type, xType, yType, axis } = options;
