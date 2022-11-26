@@ -3,7 +3,6 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import Home from "./components/home";
 import Navbar from './components/Navbar';
-import About from './components/about';
 import Creates from './components/creates';
 import V1 from "v1";
 import V2 from "v2";
@@ -21,7 +20,6 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
       <Route path="/creates" element={<Creates />} /> 
       <Route path="/artifact/v1" element={<V1 />} />
       <Route path="/artifact/v2" element={<V2 />} />
