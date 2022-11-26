@@ -5,13 +5,13 @@ import Header from "./Header";
 
 
 
+
 export default function Home() {
 
     
     return (
         <>
         <Header />
-
         <div className="home-container">
           <div className="home-center">
             <div className="home-content">

@@ -21,7 +21,7 @@ export default function Navbar() {
           <a class="nav-link home-login" href=":;">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./about">About Us</a>
+          <a class="nav-link" href="/#/creates">Create Chart</a>
         </li>
         
       </ul>
