@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/client/static/css/main.93f08560.css",
-    "main.js": "/client/static/js/main.c74bc4c5.js",
+    "main.js": "/client/static/js/main.ec6957da.js",
     "static/js/496.5073391a.chunk.js": "/client/static/js/496.5073391a.chunk.js",
     "static/media/nhtemp.csv": "/client/static/media/nhtemp.266f46b9e9398d8dd56d.csv",
+    "static/media/human-evolution-and-activities.dsv": "/client/static/media/human-evolution-and-activities.2ec26a9769fa4ede3454.dsv",
     "static/media/HadCRUT-southern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-southern-hemisphere-monthly.6771bcb3baa1cc987b83.csv",
     "static/media/HadCRUT-global-monthly.csv": "/client/static/media/HadCRUT-global-monthly.60a965c13623e584b30e.csv",
     "static/media/HadCRUT-northern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-northern-hemisphere-monthly.66f3ea7ab02ca4f57e0e.csv",
@@ -25,11 +26,11 @@
     "static/media/layer2.csv": "/client/static/media/layer2.a9654613f7fddfe10dd0.csv",
     "static/media/layer1.csv": "/client/static/media/layer1.f02959aadd6f23cbd3a6.csv",
     "main.93f08560.css.map": "/client/static/css/main.93f08560.css.map",
-    "main.c74bc4c5.js.map": "/client/static/js/main.c74bc4c5.js.map",
+    "main.ec6957da.js.map": "/client/static/js/main.ec6957da.js.map",
     "496.5073391a.chunk.js.map": "/client/static/js/496.5073391a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.93f08560.css",
-    "static/js/main.c74bc4c5.js"
+    "static/js/main.ec6957da.js"
   ]
 }
