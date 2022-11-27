@@ -21,6 +21,7 @@
     "v7": "file:src/artifacts/v7",
     "v8": "file:src/artifacts/v8",
     "v9": "file:src/artifacts/v9",
+    "v10": "file:src/artifacts/v10",
     "web-vitals": "latest"
   },
   "scripts": {
