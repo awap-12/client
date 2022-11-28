@@ -1,0 +1,25 @@
+
+.in-main-container {
+    text-align: center;
+    padding: 15px;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    box-shadow: 0 0 1em #222;
+    border-radius: 5px;
+    background: #fff;
+    padding: 4em 4em 2em;
+    max-width: 350px;
+    max-height: auto;
+    margin: 50px auto 0;
+}
+.in-form {
+    padding: 15px;   
+}
+.in-input-container{
+    padding: 12px;
+}
+.head{
+    margin:0 0 50px 0;padding: 5px;
+    text-align:center;
+    font-size:30px;
+    border-bottom:solid 1px #e5e5e5;
+}
