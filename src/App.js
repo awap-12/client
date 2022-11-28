@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router";
 import Home from "./components/home";
 import Navbar from './components/Navbar';
 import Creates from './components/creates';
+import MyChart from './components/MyChart';
 import V1 from "v1";
 import V2 from "v2";
 import V3 from "v3";
@@ -21,6 +22,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/creates" element={<Creates />} /> 
+      <Route path ="/mychart" element={<MyChart />} />
       <Route path="/artifact/v1" element={<V1 />} />
       <Route path="/artifact/v2" element={<V2 />} />
       <Route path="/artifact/v3" element={<V3 />} />
@@ -31,6 +33,8 @@ function App() {
       <Route path="/artifact/v8" element={<V8 />} />
       <Route path="*" element={<h1>Error</h1>} />
     </Routes>
+
+    
     
     </>
   );

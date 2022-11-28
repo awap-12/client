@@ -23,6 +23,10 @@ export default function Navbar() {
         <li class="nav-item">
           <a class="nav-link" href="/#/creates">Create Chart</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/#/mychart">My Chart</a>
+        </li>
         
       </ul>
     </div>
