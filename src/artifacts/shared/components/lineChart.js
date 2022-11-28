@@ -5,8 +5,9 @@ import { line as Line, curveLinear } from "d3-shape";
 import { scaleLinear, scaleTime } from "d3-scale";
 import { select, pointer } from "d3-selection";
 import { zoom } from "d3-zoom";
-import Resizer from "./resizer";
+import useResizer from "./resizer";
 import LabelGroup from "./labelGroup";
+import Tooltip from "./tooltip";
 
 const hash = window.btoa(`LineChart-${Date.now()}`);
 
@@ -89,7 +90,7 @@ function LineChart({
     tip,
     width = 960,
     height = 600,
-    margin = { top: 20, right: 30, bottom: 30, left: 40 },
+    margin = { top: 20, right: 80, bottom: 60, left: 80 },
     color = "currentColor",
     strokeLinecap = "round",
     strokeLinejoin = "round",
@@ -101,17 +102,19 @@ function LineChart({
     const { top: marginTop, right: marginRight, bottom: marginBottom, left: marginLeft } = margin;
     const { x, y, type, xType, yType, axis } = options;
     const [currentZoomState, setCurrentZoomState] = useState();
+    const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0});
+    const [tooltipVisible, setTooltipVisible] = useState(false);
+    const [tooltipContent, setTooltipContent] = useState([]);
     const [typeList, setTypeList] = useState([]);
     const [linePath, setLinePath] = useState();
     const chartRef = useRef(null);
     const svgRef = useRef(null);
-    const dimensions = Resizer(chartRef);
+    const dimensions = useResizer(chartRef);
 
     useEffect(() => {
         if (data && svgRef.current) {
             const { width: posX, height: posY } = dimensions || chartRef.current.getBoundingClientRect();
             const svg = select(svgRef.current);
-            const svgHandle = svg.select(".dot");
             const svgContent = svg.select(".content");
 
             /** Compute values and domain */
@@ -131,7 +134,6 @@ function LineChart({
             const safe = range(xSet.length).filter(i => typeDomain.has(typeSet[i]));
 
             /** Construct a line generator */
-            // TODO: defined function should be filter data
             const line = formatLine(data, infos);
 
             svg.attr("width", width).attr("height", height)
@@ -173,17 +175,17 @@ function LineChart({
                 const [xm, ym] = pointer(event);
                 const i = least(safe, i => Math.hypot(xScale(xSet[i]) - xm, yScale(ySet[i]) - ym)); // closest point
                 linePath?.style("stroke", ([z]) => typeSet[i] === z ? null : typeof color === "function" ? `${color(z)}50` : "#ddd").filter(([z]) => typeSet[i] === z).raise();
-                svgHandle.attr("transform", `translate(${xScale(xSet[i])}, ${yScale(ySet[i])})`);
-                svgHandle.select("text").text(tooltip[i]);
+                setTooltipPosition({ x: xScale(xSet[i]), y: yScale(ySet[i]) })
+                setTooltipContent([`type: ${tooltip[i]}`, `year: ${xSet[i]}`, `data: ${ySet[i]}`]);
                 svg.property("value", dataSet[i]).dispatch("input", { bubbles: true });
             }
             function pointerentered() {
                 linePath?.style("mix-blend-mode", null).style("stroke", "#ddd");
-                svgHandle.attr("display", null);
+                setTooltipVisible(true);
             }
             function pointerleft() {
                 linePath?.style("mix-blend-mode", mixBlendMode).style("stroke", null);
-                svgHandle.attr("display", "none");
+                setTooltipVisible(false);
                 svg.node().value = null;
                 svg.dispatch("input", { bubbles: true });
             }
@@ -204,7 +206,8 @@ function LineChart({
     function handleLabels(data) {
         linePath.each(function([name]) {
             for (const { key, state } of data) {
-                if (key === name) select(this).attr("display", state ? null : "none");
+                if (key === name)
+                    select(this).attr("visibility", state ? "visible" : "hidden");
             }
         });
     }
@@ -221,14 +224,11 @@ function LineChart({
               </clipPath>
             </defs>
             <g className="content" clipPath={`url(#${hash})`} />
-            <g className="dot">
-              <circle r={2.5} fill="black" />
-              <text className="tip" fontSize={10} textAnchor="middle" y={-8} />
-            </g>
             <g className="top-axis"><text className="label" fill="black" /></g>
             <g className="bottom-axis"><text className="label" fill="black" /></g>
             <g className="left-axis"><text className="label" fill="black" /></g>
             <g className="right-axis"><text className="label" fill="black" /></g>
+            <Tooltip visible={tooltipVisible} position={tooltipPosition} content={tooltipContent} />
           </svg>
         </div>
     );
