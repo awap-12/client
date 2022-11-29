@@ -17,7 +17,7 @@ export default function Home() {
             <div className="home-content">
               <Routes>
                 <Route path="/" element={
-              [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(value => (
+              [1, 2, 3, 4, 5, 6, 7, 8].map(value => (
               <>
             <div class="card">
             <div className="card-img">
@@ -25,7 +25,7 @@ export default function Home() {
             </div>
 
             <div className="card-btn">
-              <a class="btn btn-primary" href={`https://awap-12.github.io/client/#/artifact/v${value}`} role="button">v{value}</a>
+              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v${value}`} role="button">v{value}</a>
             </div>
 
 
