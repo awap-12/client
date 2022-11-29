@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/client/static/css/main.93f08560.css",
-    "main.js": "/client/static/js/main.95c23e2d.js",
+    "main.css": "/client/static/css/main.af9b08f5.css",
+    "main.js": "/client/static/js/main.e739e872.js",
     "static/js/496.5073391a.chunk.js": "/client/static/js/496.5073391a.chunk.js",
     "static/media/nhtemp.csv": "/client/static/media/nhtemp.266f46b9e9398d8dd56d.csv",
+    "static/media/img.png": "/client/static/media/img.2c4b1873007b9c203ecc.png",
     "static/media/human-evolution-and-activities.dsv": "/client/static/media/human-evolution-and-activities.2ec26a9769fa4ede3454.dsv",
     "static/media/HadCRUT-southern-hemisphere-monthly.csv": "/client/static/media/HadCRUT-southern-hemisphere-monthly.6771bcb3baa1cc987b83.csv",
     "static/media/HadCRUT-global-monthly.csv": "/client/static/media/HadCRUT-global-monthly.60a965c13623e584b30e.csv",
@@ -19,18 +20,18 @@
     "static/media/HadCRUT-southern-hemisphere-annual.csv": "/client/static/media/HadCRUT-southern-hemisphere-annual.a6995403f7dcf24a00f8.csv",
     "static/media/dss.csv": "/client/static/media/dss.dc271bf6d1df84774827.csv",
     "static/media/de08.csv": "/client/static/media/de08.b98e12305743a59e6804.csv",
-    "static/media/co2-annual.csv": "/client/static/media/co2-annual.fde79269f7d8df787825.csv",
     "index.html": "/client/index.html",
+    "static/media/co2-annual.csv": "/client/static/media/co2-annual.fde79269f7d8df787825.csv",
     "static/media/layer3.csv": "/client/static/media/layer3.6b91d09b2feab92e7ead.csv",
     "static/media/de08-2.csv": "/client/static/media/de08-2.0c55c5ac65dd8d2d2383.csv",
     "static/media/layer2.csv": "/client/static/media/layer2.a9654613f7fddfe10dd0.csv",
     "static/media/layer1.csv": "/client/static/media/layer1.f02959aadd6f23cbd3a6.csv",
-    "main.93f08560.css.map": "/client/static/css/main.93f08560.css.map",
-    "main.95c23e2d.js.map": "/client/static/js/main.95c23e2d.js.map",
+    "main.af9b08f5.css.map": "/client/static/css/main.af9b08f5.css.map",
+    "main.e739e872.js.map": "/client/static/js/main.e739e872.js.map",
     "496.5073391a.chunk.js.map": "/client/static/js/496.5073391a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93f08560.css",
-    "static/js/main.95c23e2d.js"
+    "static/css/main.af9b08f5.css",
+    "static/js/main.e739e872.js"
   ]
 }
