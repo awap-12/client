@@ -13,6 +13,7 @@ import V5 from "v5";
 import V6 from "v6";
 import V7 from "v7";
 import V8 from "v8";
+<<<<<<< HEAD
 
 function App() {
   return (
@@ -37,6 +38,29 @@ function App() {
     
     
     </>
+=======
+import V9 from "v9";
+import V10 from "v10";
+import { Route, Routes } from "react-router";
+
+function App() {
+  return (
+    <div className="App">
+      <Routes>
+        <Route path="/artifact/v1" element={<V1 />} />
+        <Route path="/artifact/v2" element={<V2 />} />
+        <Route path="/artifact/v3" element={<V3 />} />
+        <Route path="/artifact/v4" element={<V4 />} />
+        <Route path="/artifact/v5" element={<V5 />} />
+        <Route path="/artifact/v6" element={<V6 />} />
+        <Route path="/artifact/v7" element={<V7 />} />
+        <Route path="/artifact/v8" element={<V8 />} />
+        <Route path="/artifact/v9" element={<V9 />} />
+        <Route path="/artifact/v10" element={<V10 />}/>
+        <Route path="*" element={<h1>Error</h1>} />
+      </Routes>
+    </div>
+>>>>>>> 4768567d6b9dc27e1cd50c39f2fb81eb8893645f
   );
 }
 
