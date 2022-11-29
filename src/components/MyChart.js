@@ -9,7 +9,7 @@ export default function MyChart() {
     
     return (
         <>
-        <h1>My Chart</h1>
+        <h1>User name</h1>
         <hr />
         <div className = "list-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" onClick={()=>{
@@ -41,12 +41,13 @@ export default function MyChart() {
             </div>
 
             <div className="card-btn">
-              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v${value}`} role="button">v{value}</a>
+              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v${value}`} role="button">Detail</a>
               <button type="button" class="btn btn-primary">Delete</button>
             </div>
 
 
             <p className="card-text">
+              <span>title:</span><br />
               <span>V{value} brief description</span>
             </p>
           </div>

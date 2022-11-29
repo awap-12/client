@@ -49,6 +49,10 @@
     .upload{
       font-size: 24px;
     }
+
+    .upload-btn {
+      display: none;
+    }
   }
   
   @media (min-width: 600px) and (max-width:999px){ 
@@ -56,12 +60,18 @@
       font-size: 16px;
       line-height:50px;
     }
-  
+    
+    .upload-btn {
+      display: none;
+    }
   }
   
   @media (max-width: 599px){ 
-   .upload {
+   .upload-box {
     font-size:12px;
-    line-height:40px; 
+    line-height:40px;
+    display: none; 
    }
+
+  
   }
