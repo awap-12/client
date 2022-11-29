@@ -1,4 +1,10 @@
 import "./App.css";
+
+import { Route, Routes } from "react-router";
+import Home from "./components/home";
+import Navbar from './components/Navbar';
+import Creates from './components/creates';
+import MyChart from './components/MyChart';
 import V1 from "v1";
 import V2 from "v2";
 import V3 from "v3";
@@ -7,12 +13,17 @@ import V5 from "v5";
 import V6 from "v6";
 import V7 from "v7";
 import V8 from "v8";
-import { Route, Routes } from "react-router";
+import V9 from "v9";
+import V10 from "v10";
 
 function App() {
   return (
-    <div className="App">
+    <>
+      <Navbar />
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/creates" element={<Creates />} />
+        <Route path ="/mychart" element={<MyChart />} />
         <Route path="/artifact/v1" element={<V1 />} />
         <Route path="/artifact/v2" element={<V2 />} />
         <Route path="/artifact/v3" element={<V3 />} />
@@ -21,9 +32,11 @@ function App() {
         <Route path="/artifact/v6" element={<V6 />} />
         <Route path="/artifact/v7" element={<V7 />} />
         <Route path="/artifact/v8" element={<V8 />} />
+        <Route path="/artifact/v9" element={<V9 />} />
+        <Route path="/artifact/v10" element={<V10 />}/>
         <Route path="*" element={<h1>Error</h1>} />
       </Routes>
-    </div>
+    </>
   );
 }
 
