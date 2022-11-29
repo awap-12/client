@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "latest",
     "@testing-library/react": "latest",
     "@testing-library/user-event": "latest",
-    "jquery": "^3.6.1",
+    "jquery": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-router": "latest",
@@ -21,7 +21,7 @@
     "v6": "file:src/artifacts/v6",
     "v7": "file:src/artifacts/v7",
     "v8": "file:src/artifacts/v8",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "latest"
   },
   "scripts": {
     "start": "react-scripts start",
