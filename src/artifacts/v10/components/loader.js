@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { descending } from "d3-array"
-import { dsv } from "d3-fetch";
+import { csv } from "d3-fetch";
 
 //region TODO: Move to React context and replace with correct api
-import human from "../fixtures/human-evolution-and-activities.dsv";
+import human from "../fixtures/HumanEvolutionAndActivities.csv";
 
 /**
  * When handling import could use Promise.all([import])
@@ -27,7 +27,7 @@ function Loader() {
         void (async () => {
             // csv use fetch https://developer.mozilla.org/docs/Web/API/fetch
             Object.entries(handlePath()).forEach(([, path]) => {
-                jobs.push(dsv("|-|", path, data => {
+                jobs.push(csv(path, data => {
                     return {
                         year: data["year"],
                         event: data["event"]

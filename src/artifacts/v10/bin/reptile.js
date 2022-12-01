@@ -1,7 +1,6 @@
 const path = require("node:path");
 const fs = require("node:fs/promises");
 const { JSDOM } = require("jsdom");
-const Path = require("path");
 
 const TARGET = path.resolve(__dirname, "..", "fixtures");
 
@@ -24,9 +23,10 @@ function csvParser(document) {
         const cols = rows[i].querySelectorAll("td,th");
         const csvRow = [];
         for (let j = 0; j < cols.length; j++) {
-            csvRow.push(cols[j].textContent);
+            const data = cols[j].textContent;
+            csvRow.push(isNaN(data) ? `"${data}"` : data);
         }
-        csv.push(csvRow.join("|-|"));
+        csv.push(csvRow.join(","));
     }
     return csv.join("\n");
 }
@@ -55,10 +55,10 @@ void async function() {
 
     const nonHtmlChar = fulltext.replaceAll(/ /g, " ").replaceAll(/﻿/g, '');
 
-    const nonTitle = [...`year|-|event\n${nonHtmlChar}`.matchAll(/.+\|-\|.*/g)].map(data => data[0]).join("\n");
+    const nonTitle = [...`year,event\n${nonHtmlChar}`.matchAll(/.+,.*/g)].map(data => data[0]).join("\n");
 
     /** write to file system */
     await checkFolder(TARGET);
 
-    await fs.writeFile(Path.join(TARGET, "human-evolution-and-activities.dsv"), nonTitle);
+    await fs.writeFile(path.join(TARGET, "HumanEvolutionAndActivities.csv"), nonTitle);
 }();
