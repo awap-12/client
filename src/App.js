@@ -22,10 +22,10 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Creates" element={<Creates />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path ="/MyChart" element={<MyChart />} />
+        <Route path="*" element={<Home />} />
+        <Route path="/Creates/*" element={<Creates />} />
+        <Route path="/SignIn/*" element={<SignIn />} />
+        <Route path ="/MyChart/*" element={<MyChart />} />
         <Route path="/artifact/v1" element={<V1 />} />
         <Route path="/artifact/v2" element={<V2 />} />
         <Route path="/artifact/v3" element={<V3 />} />
