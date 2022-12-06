@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import $ from "jquery";
-import "../mychart.css";
+import "./mychart.css";
 
 
 export default function MyChart() {
