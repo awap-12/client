@@ -46,10 +46,10 @@ function SignUp() {
         {errors.password && <p className="in-message">Password must be more than 8 characters.</p>}
          </div>    
       <div>
-      <input type="submit" /> 
+      <input className='submit-btn' type="submit" /> 
       </div>
       <div>
-      <p>Already a member? Signin now</p> 
+      <p>Already a member?<a href='/#/SignIn'>Signin now</a> </p> 
       </div>
     </form>
   );

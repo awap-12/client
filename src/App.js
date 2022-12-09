@@ -1,10 +1,11 @@
 import "./App.css";
-
 import { Route, Routes } from "react-router";
-import Home from "./components/home";
-import Navbar from './components/Navbar';
-import Creates from './components/creates';
-import MyChart from './components/MyChart';
+import Home from "./Components/Home";
+import Navbar from './Components/Navbar';
+import Creates from './Components/Creates';
+import MyChart from './Components/MyChart';
+import SignIn from './Components/SignIn';
+import SignUp from "./Components/SignUp";
 import V1 from "v1";
 import V2 from "v2";
 import V3 from "v3";
@@ -21,9 +22,10 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/creates" element={<Creates />} />
-        <Route path ="/mychart" element={<MyChart />} />
+        <Route path="*" element={<Home />} />
+        <Route path="/Creates/*" element={<Creates />} />
+        <Route path="/SignIn/*" element={<SignIn />} />
+        <Route path ="/MyChart/*" element={<MyChart />} />
         <Route path="/artifact/v1" element={<V1 />} />
         <Route path="/artifact/v2" element={<V2 />} />
         <Route path="/artifact/v3" element={<V3 />} />
@@ -35,6 +37,7 @@ function App() {
         <Route path="/artifact/v9" element={<V9 />} />
         <Route path="/artifact/v10" element={<V10 />}/>
         <Route path="*" element={<h1>Error</h1>} />
+        <Route path="/SignUp" element={<SignUp />} />
       </Routes>
     </>
   );

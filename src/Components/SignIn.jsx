@@ -31,8 +31,8 @@ const SignIn = () => {
         {errors.password && <p className="in-message">enter the password</p>}
       </div>
 
-      <button type="submit">Submit</button>
-      <p>Not a member? Signup now</p>
+      <button className="submit-btn" type="submit">Submit</button>
+      <p>Not a member?<a href="#/SignUp">Signup now</a> </p>
         <p>forgot password?</p>
     </form>
     </div>
