@@ -25,11 +25,12 @@ export default function Home() {
             </div>
 
             <div className="card-btn">
-              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v${value}`} role="button">v{value}</a>
+              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v${value}`} role="button">Detail</a>
             </div>
 
 
             <p className="card-text">
+              <span>title:</span><br />
               <span>V{value} brief description</span>
             </p>
           </div>

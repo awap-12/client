@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../creates.css";
+import "./creates.css";
 
 
 export default function Creates() {
