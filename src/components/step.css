@@ -37,12 +37,13 @@
   }
 
   .submit-file {
-    margin-top: 40px;
-    width: 60%;
-    height:70%; 
+    margin-top: 10px;
+    width: 70px;
+    height:40px; 
     background-color: #106DF6;
     border-radius: 5px;
     border: 1px solid #106DF6;
+    float: right;
     color: white; 
   }
 

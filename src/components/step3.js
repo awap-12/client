@@ -28,14 +28,14 @@ export default function StepThree() {
                     </select><br />
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Data Source</label>
+                        <label for="exampleFormControlInput1" class="form-label">Data Sources</label>
                         <input type="source" class="form-control" id="data-source"  />
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Description Text</label>
                         <textarea class="form-control" id="chartText" rows="3"></textarea>
                     </div>
-                    <input type="submit" class="submit" value="submit"></input>
+                    <input type="submit" class="submit submit-file" value="submit"></input>
                  
                 </form>
             </div>
