@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router";
+import UserPanel from "./userpanel";
 import $ from "jquery";
 import "./mychart.css";
 
@@ -9,8 +10,7 @@ export default function MyChart() {
     
     return (
         <>
-        <h1>User name</h1>
-        <hr />
+        <UserPanel />
         <div className = "list-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" onClick={()=>{
                 $(".chart-content").addClass("table-box");

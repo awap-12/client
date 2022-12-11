@@ -3,10 +3,13 @@ import "./App.css";
 import { Route, Routes } from "react-router";
 import Home from "./components/home";
 import Navbar from './components/Navbar';
-import Creates from './components/creates';
 import MyChart from './components/MyChart';
-import Detail from './components/detail';
 import StepOne from './components/step1';
+import StepThree from './components/step3';
+import UserPanel from "./components/userpanel";
+import Detail from './components/detail';
+import SignIn from './components/SignIn';
+import SignUp from "./components/SignUp";
 import V1 from "v1";
 import V2 from "v2";
 import V3 from "v3";
@@ -24,10 +27,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/creates" element={<Creates />} />
         <Route path ="/mychart" element={<MyChart />} />
-        <Route path = "/detail" element={<Detail />} />
+        <Route path ="/userpanel" element={<UserPanel />} />
+        <Route path="/SignIn/*" element={<SignIn />} />
+        <Route path="/SignUp" element={<SignUp />} />
         <Route path ="/step1" element={<StepOne />} />
+        <Route path ="/step3" element={<StepThree />} />
+        <Route path ="/detail" element={<Detail />} /> 
         <Route path="/artifact/v1" element={<V1 />} />
         <Route path="/artifact/v2" element={<V2 />} />
         <Route path="/artifact/v3" element={<V3 />} />

@@ -18,14 +18,11 @@ export default function Navbar() {
           <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link home-login" href=":;">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/#/creates">Create Chart</a>
+          <a class="nav-link home-login" href="/#/SignIn">SignIn</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/#/mychart">My Chart</a>
+          <a class="nav-link" href="/#/userpanel">User Panel</a>
         </li>
         
       </ul>
