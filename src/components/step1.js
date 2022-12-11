@@ -1,17 +1,18 @@
-import React from "react";
-import $ from "jquery";
+import React,{useState} from "react";
+import UserPanel from "./userpanel";
 import './step.css'
 
 
 export default function StepOne() {
-
+    const [fileName,setFileName] = useState('');
+    function handleChange(e){
+        console.log(e.target.files[0].name);
+       setFileName("Selected:" + e.target.files[0].name);
+    }
     
     return (
         <>
-        <br/>
-        <br/>
-        <br/>
-        <div className="step1">Step1: Upload Your Files</div>
+        <UserPanel />
         <br/>
         <br/>
         
@@ -24,19 +25,12 @@ export default function StepOne() {
                 <path d="M7.646 1.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 2.707V11.5a.5.5 0 0 1-1 0V2.707L5.354 4.854a.5.5 0 1 1-.708-.708l3-3z"/>
                </svg> &nbsp;
                <span className="click-text">
-                Click this button to upload files
+                click button to upload files
                 </span>
-               <input type="file" className="file-btn" onClick={()=>{
-                $(".text").html($(".file-btn").val());
-                if($(".file-btn").val() !== ""){
-                    $(".click-text").text("File selected"); 
-                } else {
-                    $(".click-text").text("Click this button to upload files");  
-                }
-                }}></input>
+               <input type="file" className="file-btn" onChange={handleChange}></input>
                 </div>
-                </label><br /><br />
-                <span className="text"></span>
+                </label><br />
+                <span className="text">{fileName}</span>
                 </div>
 
                

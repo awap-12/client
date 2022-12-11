@@ -20,12 +20,9 @@ export default function Navbar() {
         <li class="nav-item">
           <a class="nav-link home-login" href=":;">Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/#/creates">Create Chart</a>
-        </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/#/mychart">My Chart</a>
+          <a class="nav-link" href="/#/userpanel">User Panel</a>
         </li>
         
       </ul>
