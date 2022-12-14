@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, Routes } from "react-router";
 import UserPanel from "./userpanel";
 import $ from "jquery";
 import "./mychart.css";
@@ -31,30 +30,24 @@ export default function MyChart() {
         <div className="chart-container">
           <div className="chart-center">
             <div className="chart-content table-box">
-              <Routes>
-                <Route path="/" element={
-              [1, 2, 3, 4, 5, 6, 7, 8].map(value => (
-              <>
+              
             <div class="card">
             <div className="card-img">
-              <img src={require(`../artifacts/v${value}/docs/img.png`)} alt=""/>
+              <img src={require(`../artifacts/v1/docs/img.png`)} alt=""/>
             </div>
 
             <div className="card-btn">
-              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v${value}`} role="button">Detail</a>
+              <a class="btn btn-primary" href={`http://localhost:3000/client/#/artifact/v1`} role="button">Detail</a>
               <button type="button" class="btn btn-primary">Delete</button>
             </div>
 
 
             <p className="card-text">
               <span>title:</span><br />
-              <span>V{value} brief description</span>
+              <span> brief description</span>
             </p>
           </div>
-              </>
-              ))}>
-                </Route>
-              </Routes>
+              
             </div>
           </div>
       

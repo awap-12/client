@@ -6,9 +6,9 @@ import './step.css'
 export default function StepOne() {
     const [fileName,setFileName] = useState('');
     function handleChange(e){
-        console.log(e.target.files[0].name);
        setFileName("Selected:" + e.target.files[0].name);
     }
+
     
     return (
         <>
@@ -27,7 +27,7 @@ export default function StepOne() {
                <span className="click-text">
                 click button to upload files
                 </span>
-               <input type="file" className="file-btn" onChange={handleChange}></input>
+               <input type="file" className="file-btn" multiple  onChange={handleChange}></input>
                 </div>
                 </label><br />
                 <span className="text">{fileName}</span>
@@ -37,7 +37,7 @@ export default function StepOne() {
         </div>
 
         <div class="submit-box">
-        <button class="submit-file"> Submit </button>
+        <button class="submit-file" > Submit </button>
         </div>
 
     

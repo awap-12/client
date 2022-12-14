@@ -4,7 +4,7 @@ import "./userpanel.css"
 
 
 export default function Dashboard () {
-
+    
     
     
    
@@ -15,7 +15,7 @@ export default function Dashboard () {
                 <div className="username">
                     User Name
                 </div>
-                <button className="btn btn-primary delete-btn">delete account</button>
+                <button className="btn btn-primary delete-btn" >Delete account</button>
             </div>
             <div className="tab-box">
                 <div id="charts" >
@@ -30,7 +30,6 @@ export default function Dashboard () {
                 </div>
             </div>
         </div>
-
         </>
      )
     

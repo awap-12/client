@@ -27,6 +27,13 @@ export default function StepThree() {
                         <option value="3">Pie chart</option>
                     </select><br />
                     </div>
+                    <div className="select">
+                        File list
+                    <select class="form-select" aria-label="Default select example"  >
+                        <option selected>file</option>
+                        
+                    </select><br />
+                    </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Data Sources</label>
                         <input type="source" class="form-control" id="data-source"  />

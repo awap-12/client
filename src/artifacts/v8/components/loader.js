@@ -54,7 +54,26 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>CO2 emissions by country</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             This chart shows the CO2 emissions of each country over time and the trend of CO2 emissions as a line graph. Before 2019, the world's carbon dioxide emissions showed an upward trend. Since 2019, the carbon dioxide emissions of most countries and regions have shown a downward trend, and the world's carbon dioxide emissions have also declined. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://data.icos-cp.eu/licence_accept?ids=%5B%22lApekzcmd4DRC34oGXQqOxbJ%22%5D<br />
+            https://essd.copernicus.org/articles/14/1917/2022/
+            </div>
+            <br />
+          </div> 
+          <LineChart data={chartData}
                        color={type => {
                            return `hsl(${colorMap[type]}, 100%, 50%)`;
                        }}
@@ -68,6 +87,17 @@ function Loader() {
                            ]
                        }}>
             </LineChart>
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+        </>
+        
         ) : <h1>Loading...</h1>;
 }
 

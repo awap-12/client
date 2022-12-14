@@ -82,6 +82,10 @@
   overflow: hidden;
 }
 
+.header{
+  background: linear-gradient(to bottom,#70afce,#a5def1,#ffffff);
+}
+
 
 @media (min-width: 1000px){
   .home-left{

@@ -48,7 +48,26 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>Atmospheric CO2 concentrations from Mauna Loa measurements starting 1958</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             The graph shows carbon dioxide measurements from observatories near the summit of Mauna Loa at an altitude of 3,400 meters. The data selection process aimed to filter out any effects of nearby CO2 emissions or removals. Due to its superior geographical location and strict data selection criteria, the carbon dioxide measurements made by the Mauna Loa Observatory reflect the real situation of the global atmosphere. It can be seen from the data visualization chart that the trends of annual data and monthly data are consistent. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://gml.noaa.gov/ccgg/trends/<br />
+            https://gml.noaa.gov/ccgg/about/co2_measurements.html
+            </div>
+            <br />
+          </div> 
+          <LineChart data={chartData}
                        color={type => {
                            switch (type) {
                                case "Co2Annual":         return "#00ff00";
@@ -73,6 +92,17 @@ function Loader() {
                            ]
                        }}>
             </LineChart>
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+            </>
+        
         ) : <h1>Loading...</h1>;
 }
 

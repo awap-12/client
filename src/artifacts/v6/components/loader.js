@@ -48,7 +48,26 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>Ice core 800k year composite study CO2 measurements</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             The project enabled the reconstruction of atmospheric CO2 concentrations over the past 800,000 years. The oldest part of the EDC CO2 record is revisited by using different methods and core parts, and different correlations between CO2 and Antarctic temperature are found in this oldest part of the record. This chart visualizes the revised 800KYr CO2 data from Antarctic ice cores. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://www.ncei.noaa.gov/access/paleo-search/study/17975<br />
+            https://www.ncei.noaa.gov/pub/data/paleo/icecore/antarctica/antarctica2015co2composite.txt
+            </div>
+            <br />
+          </div> 
+          <LineChart data={chartData}
                        color={type => {
                            switch (type) {
                                case "co2composite":     return "#0000ff";
@@ -73,6 +92,17 @@ function Loader() {
                            ]
                        }}>
             </LineChart>
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+        </>
+        
         ) : <h1>Loading...</h1>;
 }
 

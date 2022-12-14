@@ -22,7 +22,7 @@ export default function Navbar() {
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/#/userpanel">User Panel</a>
+          <a class="nav-link" href="/#/mychart">User Panel</a>
         </li>
         
       </ul>

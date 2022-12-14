@@ -48,7 +48,26 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>Vostok Ice Core CO2 measurements, 417160 - 2342 years</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             The Vostok station has the deepest ice core in history, and due to the characteristics of the ice core itself, the trapped air inclusions can directly record the changes of trace gas composition in the past. For example, the Vostok ice core records across four climate cycles, and the air extracted from the ice is younger than the surrounding ice. The extension of the Vostok CO2 record shows similar major trends in CO2 over each glacial cycle and a correlation between Antarctic temperature and atmospheric CO2 concentration. The data in the data visualization charts also exhibit the same trend. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://cdiac.ess-dive.lbl.gov/trends/co2/vostok.html <br />
+            https://cdiac.ess-dive.lbl.gov/ftp/trends/co2/vostok.icecore.co2
+            </div>
+            <br />
+          </div> 
+          <LineChart data={chartData}
                        color={type => {
                            switch (type) {
                                case "vostok":           return "#0000ff";
@@ -73,6 +92,17 @@ function Loader() {
                            ]
                        }}>
             </LineChart>
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+        </>
+           
         ) : <h1>Loading...</h1>;
 }
 
