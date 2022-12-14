@@ -70,7 +70,25 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>Northern Hemisphere 2,000-year temperature reconstruction</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             This chart mainly shows the temperature of the northern hemisphere in the past 2000 years, and it can be seen from the figure that the data from 1800 to 2000 is highly consistent with the data trend in Global historical surface temperature anomalies from January 1850 onwards. The realization of this data processing is mainly based on A wavelet transform techniqu, which enables correlation processing of data timescales, combines low-resolution proxies with tree-ring data via a wavelet transform techniqu. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://gml.noaa.gov/ccgg/about/co2_measurements.html
+            </div>
+            <br />
+          </div> 
+           <LineChart data={chartData}
                        color={type => {
                            switch (type) {
                                case "GlobalAnnual":     return "#ff0000";
@@ -104,7 +122,18 @@ function Loader() {
                                { orient: "bottom" }
                            ]
                        }}>
-            </LineChart>
+            </LineChart> 
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+            </>
+           
         ) : <h1>Loading...</h1>;
 }
 

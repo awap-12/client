@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ascending } from "d3-array"
 import { csv } from "d3-fetch";
 import { LineChart } from "shared";
+import "../../../components/detail.css"
 
 //region TODO: Move to React context and replace with correct api
 import GlobalAnnual from "../fixtures/HadCRUT-global-annual.csv";
@@ -53,7 +54,21 @@ function Loader() {
     }, []);
 
     return !!chartData ?
-        (
+        (  
+            <>
+            <div className="detail-container">
+            <div className="detail-center">
+            <div className="detail-content"> 
+            <div className = "detail-box">
+            <h2>Global historical surface temperature anomalies from January 1850 onwards</h2>
+        
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://www.metoffice.gov.uk/hadobs/hadcrut5/
+            </div>
+            <br />
+            
+          </div> 
             <LineChart data={chartData}
                        color={type => {
                            switch (type) {
@@ -86,7 +101,18 @@ function Loader() {
                                { orient: "bottom" }
                            ]
                        }}>
-            </LineChart>
+            </LineChart> 
+            </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+      
+            </>
         ) : <h1>Loading...</h1>;
 }
 

@@ -50,7 +50,26 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>Antarctic Ice Core records of atmospheric CO2 ratios combined with Mauna Loa measurements</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             The Law Dome site has several geographic advantages, such as a high snowpack rate. And based on this feature, the air enclosed in the three ice cores of Law Dome in Antarctica has an unparalleled age resolution. This chart combines Antarctic ice core atmospheric CO2 rate records with Mauna Loa measurements to provide a more complete record of CO2 history. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://cdiac.ess-dive.lbl.gov/trends/co2/lawdome.html <br />
+            https://cdiac.ess-dive.lbl.gov/ftp/trends/co2/lawdome.combined.dat
+            </div>
+            <br />
+          </div> 
+          <LineChart data={chartData}
                        color={type => {
                            switch (type) {
                                case "Co2Annual":        return "#ff0000";
@@ -79,6 +98,16 @@ function Loader() {
                            ]
                        }}>
             </LineChart>
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+        </>
         ) : <h1>Loading...</h1>;
 }
 

@@ -6,7 +6,6 @@ import Navbar from './components/Navbar';
 import MyChart from './components/MyChart';
 import StepOne from './components/step1';
 import StepThree from './components/step3';
-import UserPanel from "./components/userpanel";
 import Detail from './components/detail';
 import SignIn from './components/SignIn';
 import SignUp from "./components/SignUp";
@@ -28,12 +27,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path ="/mychart" element={<MyChart />} />
-        <Route path ="/userpanel" element={<UserPanel />} />
         <Route path="/SignIn/*" element={<SignIn />} />
         <Route path="/SignUp" element={<SignUp />} />
         <Route path ="/step1" element={<StepOne />} />
         <Route path ="/step3" element={<StepThree />} />
-        <Route path ="/detail" element={<Detail />} /> 
+        <Route path ="/detail" element={<Detail />} />
         <Route path="/artifact/v1" element={<V1 />} />
         <Route path="/artifact/v2" element={<V2 />} />
         <Route path="/artifact/v3" element={<V3 />} />

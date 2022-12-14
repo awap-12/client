@@ -1,6 +1,5 @@
 import React from "react";
 import ChartInfo from "./chartinfo";
-import V7 from "v7";
 import './detail.css';
 
 export default function Detail() {
@@ -10,7 +9,7 @@ export default function Detail() {
           <div className="detail-center">
            <div className="detail-content"> 
           <ChartInfo />
-          <V7 />
+          
           </div>
         
           </div>

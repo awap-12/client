@@ -50,7 +50,27 @@ function Loader() {
 
     return !!chartData ?
         (
-            <LineChart data={chartData}
+            <>
+            <div className="detail-container">
+          <div className="detail-center">
+           <div className="detail-content"> 
+           <div className = "detail-box">
+            <h2>Evolution of global temperature over the past two million years</h2>
+            <div className="description">
+             <strong>Description:</strong><br />
+             Reconstructions of global temperatures over the past 2 million years reveal a gradual cooling of global temperatures until a plateau around 1.2 million years ago and to the present. Over the past 800,000 years, global temperature and atmospheric greenhouse gas concentrations have been tightly coupled during glacial cycles. In addition to this, the observed attenuation of the global temperature signal and the reduction in correlations may be due to both deep-water cooling being affected by changes in the freezing temperature of the water or through changes in ocean circulation. This graph shows the available 2 million year period of temperature records combined with the available 800,000 year period of co2 measurements. 
+            </div>
+            
+            
+            <div className="data-source">
+            <strong>Sources Link:</strong><br />
+            https://climate.fas.harvard.edu/files/climate/files/snyder_2016.pdf<br />
+            http://carolynsnyder.com/publications.php<br/>
+            http://carolynsnyder.com/papers/Snyder_Data_Figures.zip
+            </div>
+            <br />
+          </div> 
+          <LineChart data={chartData}
                        color={type => {
                            switch (type) {
                                case "co2":              return "#0000ff";
@@ -82,6 +102,17 @@ function Loader() {
                            ]
                        }}>
             </LineChart>
+          </div>
+        
+          </div>
+      
+          <div className="detail-left"></div>
+          <div className="detail-right"></div>
+         
+       
+        </div>
+        </>
+            
         ) : <h1>Loading...</h1>;
 }
 
